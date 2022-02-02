@@ -36,7 +36,7 @@ export default {
      },
      methods:{
        test:function(){
-          console.log("ci sono capo");
+          console.log(this.albumList[0].title);
        }
      },
   mounted() {
