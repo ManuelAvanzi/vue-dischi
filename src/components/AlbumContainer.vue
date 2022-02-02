@@ -1,5 +1,5 @@
 <template>
-    <div id="container-"> 
+    <div id="container"> 
     
        <div
           
@@ -39,7 +39,10 @@ export default {
        padding:30px;
        width: 100%;
        height: 100vh;
-       background-color: #1E2D3B;;
+       background-color: #1E2D3B;
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
    }
 
 </style>
