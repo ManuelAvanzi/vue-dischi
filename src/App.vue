@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <loader-container v-if="!flagLoaded" />
+    
     <header-container v-else/>
+    <search-container @search="test"/>
     <album-container  :albumList="albumList"/>
   </div>
 </template>
@@ -11,6 +13,7 @@ import axios from 'axios'
 import LoaderContainer from './components/LoaderContainer.vue'
 import AlbumContainer from './components/AlbumContainer.vue'
 import HeaderContainer from './components/HeaderContainer.vue'
+import SearchContainer from './components/SearchContainer.vue'
 
 
 
@@ -20,13 +23,20 @@ export default {
   components: {
     HeaderContainer,
     AlbumContainer,
-    LoaderContainer
+    LoaderContainer,
+    SearchContainer
+
   },
      
      data(){
        return {
          albumList:[],
          flagLoaded:false
+       }
+     },
+     methods:{
+       test:function(){
+          console.log("ci sono capo");
        }
      },
   mounted() {
