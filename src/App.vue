@@ -3,7 +3,7 @@
     <loader-container v-if="!flagLoaded" />
     
     <header-container v-else/>
-    <search-container @search="test"/>
+    <search-container @search="genre"/>
     <album-container  :albumList="albumList"/>
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import axios from 'axios'
 import LoaderContainer from './components/LoaderContainer.vue'
-import AlbumContainer from './components/AlbumContainer.vue'
+import AlbumContainer  from './components/AlbumContainer.vue'
 import HeaderContainer from './components/HeaderContainer.vue'
 import SearchContainer from './components/SearchContainer.vue'
 
@@ -31,13 +31,16 @@ export default {
      data(){
        return {
          albumList:[],
-         flagLoaded:false
+         flagLoaded:false,
+         filtered:[],
        }
      },
      methods:{
-       test:function(){
-          console.log(this.albumList[0].title);
-       }
+       filterDisc(genre){
+          this.filterDisc=this.albumList.filter((disc) => {
+            return disc.genre.toLowerCase() === genre || genre ==='all';
+          });
+       },
      },
   mounted() {
 

@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-         <select @change="$emit('search')">
+         <select 
+         v-model="select"
+         @change="$emit('search', select)">
 
             <option value="all">All</option>
             <option value="rock">Rock</option>
@@ -14,7 +16,11 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+            select: 'all'
+        }
+    }
 }
 </script>
 
